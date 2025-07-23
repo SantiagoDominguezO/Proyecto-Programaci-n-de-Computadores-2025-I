@@ -49,12 +49,7 @@ El objetivo es aplicar buenas prácticas de programación estructurada, manejo d
 
 ## Compilación
 
-Se requiere un compilador C++17 (o superior). Desde la raíz del repositorio:
-
-```bash
-mkdir -p bin
-g++ src/main.cpp -o bin/simulador -std=c++17
-```
+Se requiere un compilador de C++ Desde la raíz del repositorio:
 
 ---
 
@@ -105,7 +100,7 @@ Al ejecutar la fase eliminatoria, se genera también `results/fase_eliminatoria.
 
 ## Historial de entregas
 
-1. **Entrega 1**: `docs/PC_Proyecto_Entrega_1_Solo.pdf` — Especificación.
+1. **Entrega 1**: `docs/PC_Proyecto_Entrega_1_Equipo_69.pdf` — Especificación.
 2. **Entrega 2**: Código funcional con fase de grupos, carga manual y CSV.
 3. **Entrega 3**: Integración de fase eliminatoria recursiva y exportación CSV (actual).
 
