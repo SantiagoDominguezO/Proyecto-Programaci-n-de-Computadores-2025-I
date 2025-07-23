@@ -61,6 +61,12 @@ calendario.push_back(partido);
     return calendario;
 }
 
+void mostrarPartido(const Partido& p, int numeroPartido) {
+    cout << "\n--- Partido " << numeroPartido << " ---\n";
+    cout << p.local->nombre << " " << p.golesLocal << " - " 
+         << p.golesVisitante << " " << p.visitante->nombre << endl;
+}
+
 // Simula los resultados de los partidos
 void simularPartidos(vector<Partido>& partidos) {
     srand(time(nullptr));
@@ -87,11 +93,22 @@ void simularPartidos(vector<Partido>& partidos) {
 
 // Muestra tabla de posiciones
 void mostrarTabla(const vector<Equipo>& equipos) {
-    cout << "\nTabla de posiciones:\n";
-    cout << "Equipo\tPuntos\tGF\tGC\tGD\n";
-    for (const auto& e : equipos) {
+    vector<Equipo> temp = equipos;
+    sort(temp.begin(), temp.end(), [](const Equipo& a, const Equipo& b) {
+        return a.puntos > b.puntos;
+    });
+
+    cout << "\n--- TABLA DE POSICIONES ---\n";
+    cout << "Equipo\t\tPuntos\tGF\tGC\tGD\n";
+    for (const auto& e : temp) {
         int gd = e.golesFavor - e.golesContra;
-        cout << e.nombre << "\t" << e.puntos << "\t" << e.golesFavor << "\t" << e.golesContra << "\t" << gd << "\n";
+        cout << e.nombre << "\t\t" << e.puntos << "\t" 
+             << e.golesFavor << "\t" << e.golesContra << "\t" << gd << "\n";
+    }
+
+    // Mostrar campeón
+    if (!temp.empty()) {
+        cout << "\n¡El campeón es " << temp[0].nombre << "!\n";
     }
 }
 
